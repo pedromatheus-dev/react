@@ -40,17 +40,13 @@ function App(){
   }
 
   function onAddTask(title, description){
-    const id = tasks[tasks.length - 1].id + 1
-    const isCompleted = false
-    tasks.push(
-      {
-        id: id,
-        title: title,
-        description: description,
-        isCompleted: isCompleted
-      }
-    )
-    setTasks([...tasks])
+    const newTask = {
+      id: tasks.length + 1,
+      title,
+      description,
+      isCompleted: false
+    }
+    setTasks([...tasks, newTask])
   }
 
   return (
