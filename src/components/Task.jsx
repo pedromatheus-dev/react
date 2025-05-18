@@ -1,11 +1,14 @@
 import {ChevronRightIcon, TrashIcon} from "lucide-react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate     } from "react-router-dom"
 
 function Tasks(props){
     const navigate = useNavigate()
 
     function onSeeDetailsClick(task){
-        navigate(`/task?title=${task.title}&description=${task.description}`)
+        const query = new URLSearchParams()
+        query.set("title", task.title)
+        query.set("description", task.description)
+        navigate(`/task?${query.toString()}`)
     }
     // return <p>{props.tasks[0].title}</p>
     return (
